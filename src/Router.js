@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React from "react";
-import StylesGlobal from "./styles/StylesGlobal";
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
 import Booking from "./pages/Booking/Booking";
@@ -12,7 +11,6 @@ import Usersign from "./pages/UserSign/UserSign";
 const Router = () => {
   return (
     <BrowserRouter>
-      <StylesGlobal />
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
