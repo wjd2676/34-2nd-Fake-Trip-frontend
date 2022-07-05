@@ -1,0 +1,20 @@
+{
+  "product": {
+    "id": 1,
+    "name": "\uace8\ub4dc\uc6d0\ud638\ud154\uc5d4\uc2a4\uc704\ud2b8 \uc11c\uadc0\ud3ec"
+  },
+  "room": {
+    "id": 3,
+    "name": "\ub514\ub7ed\uc2a4 \ud2b8\uc708",
+    "price": 376000,
+    "image": "https://images.pexels.com/photos/210604/pexels-photo-210604.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  "start_date": "2022-02-03",
+  "end_date": "2022-02-04",
+  "user": {
+    "name": "\uc815\uc9c4\uad00",
+    "email": "ilyan1004@nate.com",
+    "phone_number": "",
+    "credit": "200000.00"
+  }
+}

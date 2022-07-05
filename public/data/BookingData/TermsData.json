@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "travler",
+    "terms_label": "여행자 약관 동의(필수)"
+  },
+  { "id": 2, "name": "perseonal", "terms_label": "개인정보 제공 동의(필수)" },
+  {
+    "id": 3,
+    "name": "collection",
+    "terms_label": "개인정보 수집 및 이용 동의(필수)"
+  },
+  {
+    "id": 4,
+    "name": "special_price",
+    "terms_label": "특가 항공권 및 할인 혜택 안내 동의(필수)"
+  }
+]
