@@ -1,0 +1,83 @@
+{
+// "rooms": [
+//   {
+//     "id": 1,
+//     "name": "디럭스 시티뷰",
+//     "min_guest" : 2,
+//     "max_guest" : 3,
+//     "price": "366,000",
+//     "images" : [
+//       {
+//         "url" : "agagagaga",
+//         "is_main" : true
+//       },
+//       {
+//         "url" : "agagagaga",
+//         "is_main" : false
+//       },
+//       {
+//         "url" : "agagagaga",
+//         "is_main" : false
+//       }
+//     ]
+//   },
+//   {
+//     "id": 2,
+//     "image": "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+//     "name": "디럭스 홀리뷰",
+//     "guest": "기준 2인 / 최대 5인",
+//     "price": "766,000"
+//   }
+// ]
+}
+
+
+// ,
+
+// "rooms": [
+//   {
+//     "id": 1,
+//     "images":[
+//       {"id" : 33,
+//         "url" : "af-a84f91t074&q=80",
+//         "is_main" : false}],
+//     "name": "디럭스 시티뷰",
+//     "min_guests": 2,
+//     "max_guests": 3,
+//     "price": "366,000"
+//   },
+//   {
+//     "id": 2,
+//     "images":[
+//       {"id" : 33,
+//         "url" : "af-a84f91t074&q=80",
+//         "is_main" : false}],
+//     "name": "디럭스 홀리뷰",
+//     "min_guests": 2,
+//     "max_guests": 3,
+//     "price": 766000
+//   }
+
+// "rooms": [
+//   {
+//     "id": 1,
+//     "images":[
+//       {"id" : 33,
+//         "url" : "af-a84f91t074&q=80",
+//         "is_main" : false}],
+//     "name": "디럭스 시티뷰",
+//     "min_guests": 2,
+//     "max_guests": 3,
+//     "price": "366,000"
+//   },
+//   {
+//     "id": 2,
+//     "images":[
+//       {"id" : 33,
+//         "url" : "af-a84f91t074&q=80",
+//         "is_main" : false}],
+//     "name": "디럭스 홀리뷰",
+//     "min_guests": 2,
+//     "max_guests": 3,
+//     "price": 766000
+//   }

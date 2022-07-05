@@ -1,0 +1,70 @@
+[
+  {
+    "product_id": 1,
+    "name": "호텔 더 드래곤 여수",
+    "address": "전남 여수시 국동남6길 49-10",
+    "grade": 5,
+    "price": "366,000",
+    "check_in": "14:00",
+    "check_out": "11:00",
+    "latitude": "33.2406812000",
+    "longtitude": "126.5317829000",
+    "rating": 3.5,
+    "rating_count": 1,
+    "images": [
+      {
+        "id": 1,
+        "url": "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+        "is_main": true
+      },
+      {
+        "id": 53,
+        "url": "https://images.unsplash.com/photo-1615460549969-36fa19521a4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+        "is_main": false
+      },
+      {
+        "id": 71,
+        "url": "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80 ",
+        "is_main": false
+      },
+      {
+        "id": 99,
+        "url": "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80 ",
+        "is_main": false
+      },
+      {
+        "id": 31,
+        "url": "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80 ",
+        "is_main": false
+      }
+    ],
+    "rooms": [
+      {
+        "id": 1,
+        "image": "https://images.unsplash.com/photo-1535827841776-24afc1e255ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+        "name": "디럭스 시티뷰",
+        "guest": "기준 2인 / 최대 3인",
+        "price": "366,000"
+      },
+      {
+        "id": 2,
+        "image": "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+        "name": "디럭스 홀리뷰",
+        "guest": "기준 2인 / 최대 5인",
+        "price": 766000
+      }
+    ]
+  }
+]
+
+
+content: "이 호텔 너무 좋아요";
+id: 13;
+image_url: "http://ding-s3-bucket.s3.ap-northeast-2.amazonaws.com/86bdb44c-2f89-4628-85a5-e0d981480cbf";
+product_id: 1;
+rating: 1;
+updated_at: "2022-07-12";
+user_name: "정진관";content: "fasdfasdfa"
+id: 14
+image_url: "http://ding-s3-bucket.s3.ap-northeast-2.amazonaws.com/7488841c-cbc8-45af-a57c-50adaa84573a"
+product_id: 1
