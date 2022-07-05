@@ -14,6 +14,7 @@ const TermsInput = ({
   userName,
   userEmail,
   userPhone,
+  locationSearch,
 }) => {
   const isAllChecked = Boolean(
     checkedList.travler &&
