@@ -7,6 +7,7 @@ import Main from "./pages/Main/Main";
 import Productdetail from "./pages/ProductDetail/ProductDetail";
 import Searchlist from "./pages/SearchList/SearchList";
 import Usersign from "./pages/UserSign/UserSign";
+import Map from "./pages/SearchList/Map";
 
 const Router = () => {
   return (
@@ -18,6 +19,7 @@ const Router = () => {
         <Route path="/productdetail/:id" element={<Productdetail />} />
         <Route path="/searchlist" element={<Searchlist />} />
         <Route path="/usersign" element={<Usersign />} />
+        <Route path="/map" element={<Map />} />
       </Routes>
       <Footer />
     </BrowserRouter>
