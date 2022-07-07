@@ -19,7 +19,7 @@ const Router = () => {
         <Route path="/searchlist" element={<Searchlist />} />
         <Route path="/usersign" element={<Usersign />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 };

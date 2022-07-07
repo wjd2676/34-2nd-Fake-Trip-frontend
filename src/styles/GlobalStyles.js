@@ -5,6 +5,7 @@ const GlobalStyles = createGlobalStyle`
 ${reset} 
 * {
   box-sizing: border-box; 
+  font-family: 'Gothic A1', sans-serif;
 }
 
 body {
