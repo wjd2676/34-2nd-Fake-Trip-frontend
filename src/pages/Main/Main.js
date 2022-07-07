@@ -1,8 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 
 const Main = () => {
-  return <div>Main정현준</div>;
+  return <div>main</div>;
 };
 
 export default Main;
