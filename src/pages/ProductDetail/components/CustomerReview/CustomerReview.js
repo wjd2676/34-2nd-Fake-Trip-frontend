@@ -16,32 +16,24 @@ const CustomerReview = ({ itemInfo, id }) => {
 
   const { rating, review_count } = itemInfo;
 
+  const userRating = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+  };
+
   useEffect(() => {
     fetch(`${API.PRODUCTS}/${id}/reviews`, { method: "GET" })
       .then(res => res.json())
       .then(res => setUserReview(res.reviews));
   }, [id]);
 
-  const makeGraphBox = () => {
-    const result = [];
-    for (let i = 1; i < 6; i++) {
-      result.push(
-        <GraphBox key={i}>
-          <Rate
-            name={i}
-            defaultValue={i}
-            disabled
-            style={{
-              fontSize: 12,
-              color: "#62B2F2",
-            }}
-          />
-          {i}
-        </GraphBox>
-      );
-    }
-    return result;
-  };
+  userReview.forEach(data => {
+    userRating[data.rating] += 1;
+  });
+
   return (
     <ReviewContainer>
       <ReviewTitle>
@@ -61,7 +53,24 @@ const CustomerReview = ({ itemInfo, id }) => {
             }}
           />
         </RatingInfo>
-        <RatingGraph>{makeGraphBox()}</RatingGraph>
+        <RatingGraph>
+          <RatingGraph>
+            {USER_RATING.map(data => (
+              <GraphBox key={data.defaultValue}>
+                <Rate
+                  name={data.name}
+                  defaultValue={data.defaultValue}
+                  disabled
+                  style={{
+                    fontSize: 12,
+                    color: "#62B2F2",
+                  }}
+                />
+                {userRating[data.defaultValue]}
+              </GraphBox>
+            ))}
+          </RatingGraph>
+        </RatingGraph>
       </RatingContainer>
       <GoodPointReview>
         <GoodTitle>여행자들이 뽑은 좋은 점</GoodTitle>
@@ -252,5 +261,13 @@ const ReviewOption = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+const USER_RATING = [
+  { defaultValue: 1, value: 0, name: "RatingOne" },
+  { defaultValue: 2, value: 0, name: "RatingTwo" },
+  { defaultValue: 3, value: 0, name: "RatingThree" },
+  { defaultValue: 4, value: 0, name: "RatingFour" },
+  { defaultValue: 5, value: 0, name: "RatingFive" },
+];
 
 export default CustomerReview;

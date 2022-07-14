@@ -27,12 +27,17 @@ const UserInputContainer = ({ id }) => {
     formData.append("rating", userRating);
     formData.append("product_id", `${id}`);
 
-    axios.post(API.REVIEWS, formData, {
-      headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxM30.rQrQM6TZsK744B-vV6-uRFCByomNvDMZNvIKk1UQDu8",
-      },
-    });
+    axios
+      .post(API.REVIEWS, formData, {
+        headers: {
+          Authorization:
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxM30.rQrQM6TZsK744B-vV6-uRFCByomNvDMZNvIKk1UQDu8",
+        },
+      })
+      .then(function (response) {
+        // 성공한 경우 실행
+        console.log(response);
+      });
   };
 
   return (

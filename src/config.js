@@ -1,4 +1,4 @@
-const IP = "http://15.164.213.245:8000";
+const IP = "http://10.58.1.238:8000";
 
 export const API = {
   PRODUCTS: `${IP}/products`,
