@@ -4,6 +4,7 @@ export const NavStyle = styled.div`
   margin: auto;
   padding: 0px 175px;
   background-color: transparent;
+  /* background-color: black; */
   z-index: 11 !important;
   height: 123px;
   width: 100%;

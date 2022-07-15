@@ -237,7 +237,7 @@ export const TermsTitle = styled.div`
 `;
 
 export const TermsAgreeBox = styled.div`
-  height: 300px;
+  height: 299px;
   padding: 15px;
   border: 1px solid #e8e8e8;
 `;

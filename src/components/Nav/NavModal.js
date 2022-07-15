@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { IP } from "../../config";
 import * as NMS from "./NavModal-style";
 
 const NavModal = ({ navUserInput }) => {
   const [navSearchData, setNavSearchData] = useState([]);
   useEffect(() => {
-    fetch("http://10.58.7.191:8000/products?limit=40")
+    fetch(`${IP}/products?limit=40`)
       .then(res => res.json())
       .then(res => {
         setNavSearchData(res.results);
       });
   }, []);
 
-  if (navSearchData.length === 0) return <>loadingLoading</>;
+  if (navSearchData.length === 0) return <></>;
 
   const sortedNavSearchResult = navSearchData.filter(ele => {
     return ele.address.includes(navUserInput);

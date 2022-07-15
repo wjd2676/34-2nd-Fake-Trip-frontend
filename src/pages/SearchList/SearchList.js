@@ -11,8 +11,10 @@ import LocationModal from "./LocationModal";
 import HeadcountModal from "./HeadcountModal";
 import Facilities from "./Facilities";
 import Buttons from "./Buttons";
-import "./Calendar.css";
+// import "./Calendar.css";
 import "antd/dist/antd.css";
+import { IP } from "../../config";
+import "./Calendar.scss";
 
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
@@ -60,7 +62,7 @@ const Searchlist = () => {
 
   useEffect(() => {
     fetch(
-      `http://10.58.7.191:8000/products?${
+      `${IP}/products?${
         location.search.split("?")[1] || `limit=${LIMIT}&offset=0`
       }`
     )
@@ -85,8 +87,6 @@ const Searchlist = () => {
   amenities = amenities.join("");
 
   const filter = () => {
-    // const offset = LIMIT * buttonIndex;
-    // const queryString = `?limit=${LIMIT}&offset=${offset}`;
     navigate(
       `?search=${locationInput}&start_date=${date[0]}&end_date=${
         date[1]
@@ -120,9 +120,21 @@ const Searchlist = () => {
 
   return (
     <div>
-      <s.Nav />
+      <s.Nav className="topDiv">
+        <a href="https://ifh.cc/v-R4jq6G" target="_blank" rel="noreferrer">
+          <video
+            src="https://ifh.cc/v/R4jq6G.mp4"
+            muted
+            autoPlay
+            loop
+            playsInline
+            className="topVideo"
+          />
+        </a>
+        <div className="topBox" />
+      </s.Nav>
 
-      <s.SearchContainer>
+      <s.SearchContainer className="searchContainer">
         <s.SearchInnerContainer>
           <s.SearchLocationContainer>
             <s.LocationInputBox>
@@ -263,6 +275,7 @@ const Searchlist = () => {
               return (
                 <ItemCard
                   key={el.id}
+                  id={el.id}
                   image={el.main_image}
                   name={el.name}
                   category={el.category}

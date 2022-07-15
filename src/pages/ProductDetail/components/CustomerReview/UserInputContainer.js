@@ -30,8 +30,7 @@ const UserInputContainer = ({ id }) => {
     axios
       .post(API.REVIEWS, formData, {
         headers: {
-          Authorization:
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxM30.rQrQM6TZsK744B-vV6-uRFCByomNvDMZNvIKk1UQDu8",
+          Authorization: localStorage.getItem("Authorization"),
         },
       })
       .then(function (response) {
@@ -39,7 +38,7 @@ const UserInputContainer = ({ id }) => {
         console.log(response);
       });
   };
-
+  console.log(localStorage.getItem("Authorization"));
   return (
     <UserInputContent>
       <ReviewTitle>리뷰</ReviewTitle>

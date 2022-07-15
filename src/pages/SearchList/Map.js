@@ -5,7 +5,7 @@ import * as s from "./Styled.SearchList";
 import { Slider } from "antd";
 import { Rate } from "antd";
 import HotelCategoryCard from "./HotelCategoryCard";
-import "./Calendar.css";
+import "./Calendar.scss";
 import "antd/dist/antd.css";
 
 function GoogleMap() {

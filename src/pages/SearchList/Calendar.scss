@@ -1,0 +1,33 @@
+.searchContainer {
+  .ant-picker.ant-picker {
+    border: 0 !important;
+    padding: 4px;
+  }
+
+  .ant-picker:focus {
+    outline: none;
+  }
+
+  .ant-rate {
+    color: #51abf3;
+    margin-top: 20px;
+  }
+  .ant-rate svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .ant-rate path {
+    width: 35px;
+    height: 35px;
+  }
+
+  .ant-picker-input input {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .ant-picker-suffix {
+    display: none;
+  }
+}

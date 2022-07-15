@@ -63,6 +63,7 @@ const CustomerReview = ({ itemInfo, id }) => {
                   disabled
                   style={{
                     fontSize: 12,
+
                     color: "#62B2F2",
                   }}
                 />

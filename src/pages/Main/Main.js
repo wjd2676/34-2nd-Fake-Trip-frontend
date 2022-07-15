@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import qs from "qs";
+import axios from "axios";
 import { Button, Dropdown, Space, DatePicker, Switch } from "antd";
 import { DownOutlined } from "@ant-design/icons";
+import { IP } from "../../config";
 import koKR from "antd/lib/locale/ko_KR";
 import ProfileSlider from "./ProfileSlider";
 import SearchModal from "./SearchModal";
@@ -20,6 +24,49 @@ const Main = () => {
   const [userInput, setUserInput] = useState("");
   const [isDropDownModalOpen, setIsDropDownModalOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+  const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+  const REDIRECT_URI = "http://localhost:3000/";
+  const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
+  const code = new URL(window.location.href).searchParams.get("code");
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const getKaKaoToken = async () => {
+    const payload = qs.stringify({
+      grant_type: "authorization_code",
+      client_id: REST_API_KEY,
+      redirect_uri: REDIRECT_URI,
+      code: code,
+      client_secret: CLIENT_SECRET,
+    });
+
+    await axios
+      .post("https://kauth.kakao.com/oauth/token", payload)
+      .then(res => {
+        console.log(res.data.access_token);
+        fetch(`${IP}/users/signin`, {
+          headers: {
+            Authorization: res.data.access_token,
+          },
+        })
+          .then(res => res.json())
+          .then(data => {
+            localStorage.setItem(
+              "Authorization",
+              "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNX0.xLWeDmh7RRSz-3FWth2UlgiqSfU7d2pMufCfuWzLGYY"
+            );
+          })
+          .then(res => console.log(res));
+        // localStorage.setItem("kakaotoken", res.data.access_token);
+      });
+
+    // const kakaoToken = localStorage.getItem("kakaotoken");
+  };
+
+  useEffect(() => {
+    getKaKaoToken();
+  }, []);
 
   const onClickAddAdultCount = () => {
     setAdultNum(adultNum + 1);
@@ -71,6 +118,14 @@ const Main = () => {
     }
   };
 
+  const filter = () => {
+    navigate(
+      `searchlist?search=${userInput}&start_date=${startDate[0]}&end_date=${
+        startDate[1]
+      }&guest=${adultNum + kidNum}`
+    );
+  };
+
   const menu = (
     <MS.Menu>
       <p>인원 선택</p>
@@ -99,10 +154,16 @@ const Main = () => {
     </MS.Menu>
   );
 
+  console.log(startDate);
+
+  const getDateValue = (date, dateString) => {
+    setStartDate(dateString);
+  };
+
   return (
     <MS.MainStyle onClick={onCloseModal}>
       <div className="topDiv">
-        <a href="https://ifh.cc/v-R4jq6G" target="_blank">
+        <a href="https://ifh.cc/v-R4jq6G" target="_blank" rel="noreferrer">
           <video
             src="https://ifh.cc/v/R4jq6G.mp4"
             muted
@@ -112,7 +173,7 @@ const Main = () => {
             className="topVideo"
           />
         </a>
-        <div className="topBox"></div>
+        <div className="topBox" />
       </div>
       <div className="section">
         <MS.MainTitle>어떤 숙소 찾으세요?</MS.MainTitle>
@@ -142,9 +203,8 @@ const Main = () => {
             <MS.DateSelectDiv>
               <Space direction="vertical" size={12} locale={koKR}>
                 <RangePicker
-                  onChange={date => setStartDate(date)}
+                  onChange={getDateValue}
                   placeholder={["체크인 날짜", "체크 아웃 날짜"]}
-                  locale={koKR}
                   style={{
                     height: "48px",
                     width: "306px",
@@ -173,41 +233,27 @@ const Main = () => {
                 </Button>
               </Dropdown>
             </MS.HeadCountDiv>
-            <MS.SearchBtn>검색</MS.SearchBtn>
+            <MS.SearchBtn onClick={filter}>검색</MS.SearchBtn>
           </MS.SearchBox>
         </MS.SearchBoxDiv>
       </div>
       <div className="bottomDiv">
-        <div>
-          <MS.AdvertiseBox>
-            <MS.AdvertiseDiv>
-              <MS.CarouselBox>
-                <ProfileSlider></ProfileSlider>
-              </MS.CarouselBox>
-            </MS.AdvertiseDiv>
-            <MS.AdvertiseDiv>
-              <MS.CarouselBox>
-                <ProfileSlider></ProfileSlider>
-              </MS.CarouselBox>
-            </MS.AdvertiseDiv>
-          </MS.AdvertiseBox>
-        </div>
         <div className="carouselDiv">
           <div>오늘의 추천 호텔</div>
           <MS.CarouselBox>
-            <PS.ProductSliderRandom></PS.ProductSliderRandom>
+            <PS.ProductSliderRandom />
           </MS.CarouselBox>
         </div>
         <div className="carouselDiv">
           <div>여름엔 제주도! 제주 인기 호텔</div>
           <MS.CarouselBox>
-            <PS.ProductSliderJeju></PS.ProductSliderJeju>
+            <PS.ProductSliderJeju />
           </MS.CarouselBox>
         </div>
         <div className="carouselDiv">
           <div>무더운 여름은 수영장에서! 수영장 있는 호텔!</div>
           <MS.CarouselBox>
-            <PS.ProductSliderPool></PS.ProductSliderPool>
+            <PS.ProductSliderPool />
           </MS.CarouselBox>
         </div>
       </div>

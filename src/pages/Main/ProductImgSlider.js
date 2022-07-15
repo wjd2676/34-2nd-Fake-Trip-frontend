@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import * as P2S from "./ProductImgSlider-style";
 import ProductCard from "./ProductCard";
+import { IP } from "../../config";
 
 export const ProductSliderRandom = () => {
   let settings = {
@@ -15,7 +17,7 @@ export const ProductSliderRandom = () => {
   const [productRandomData, setProductRandomData] = useState([]);
 
   useEffect(() => {
-    fetch("http://10.58.7.191:8000/products?sort=random")
+    fetch(`${IP}/products?sort=random`)
       .then(res => res.json())
       .then(res => {
         setProductRandomData(res.results);
@@ -33,7 +35,7 @@ export const ProductSliderRandom = () => {
             location={ele.region}
             price={ele.price.default}
             grade={ele.grade}
-          ></ProductCard>
+          />
         ))}
       </P2S.StyledSlider>
     </P2S.CarouselBox>
@@ -53,7 +55,7 @@ export const ProductSliderJeju = () => {
   const [productJejuData, setProductJejuData] = useState([]);
 
   useEffect(() => {
-    fetch("http://10.58.7.191:8000/products?sort=random&region=제주도")
+    fetch(`${IP}/products?sort=random&region=제주도`)
       .then(res => res.json())
       .then(res => {
         setProductJejuData(res.results);
@@ -70,7 +72,7 @@ export const ProductSliderJeju = () => {
             location={ele.region}
             price={ele.price.default}
             grade={ele.grade}
-          ></ProductCard>
+          />
         ))}
       </P2S.StyledSlider>
     </P2S.CarouselBox>
@@ -90,7 +92,7 @@ export const ProductSliderPool = () => {
   const [productPoolData, setProductPoolData] = useState([]);
 
   useEffect(() => {
-    fetch("http://10.58.7.191:8000/products?sort=random&amenity=워터파크")
+    fetch(`${IP}/products?sort=random&amenity=워터파크`)
       .then(res => res.json())
       .then(res => {
         setProductPoolData(res.results);
@@ -108,7 +110,7 @@ export const ProductSliderPool = () => {
             location={ele.region}
             price={ele.price.default}
             grade={ele.grade}
-          ></ProductCard>
+          />
         ))}
       </P2S.StyledSlider>
     </P2S.CarouselBox>

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as S from "./Booking.style";
+import { IP } from "../../config";
 
 const TermsInput = ({
   price,
@@ -31,11 +32,10 @@ const TermsInput = ({
 
   const clickToPay = e => {
     e.preventDefault();
-    fetch(`http://15.164.213.245:8000/orders/reservation`, {
+    fetch(`http://${IP}/orders/reservation`, {
       method: "POST",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxM30.rQrQM6TZsK744B-vV6-uRFCByomNvDMZNvIKk1UQDu8",
+        Authorization: localStorage.getItem("Authorization"),
       },
       body: JSON.stringify({
         room_id: roomId,
@@ -79,10 +79,6 @@ const TermsInput = ({
       <S.PaymentForm>
         <S.PaymentButton
           className="payment_btn"
-          // style={{
-          //   backgroundColor: !isAllChecked ? "#a7d4f9" : "#51abf3",
-          //   cursor: !isAllChecked ? "not-allowed" : "pointer",
-          // }}
           primary={!isAllChecked}
           disabled={!isAllChecked}
           onClick={clickToPay}

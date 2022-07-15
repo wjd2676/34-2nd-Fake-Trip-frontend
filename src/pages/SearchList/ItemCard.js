@@ -1,7 +1,9 @@
 import React from "react";
 import * as s from "./Styled.SearchList";
+import { useNavigate } from "react-router-dom";
 
 const ItemCard = ({
+  id,
   image,
   name,
   // stars_for_review,
@@ -10,8 +12,14 @@ const ItemCard = ({
   address,
   price,
 }) => {
+  const navigate = useNavigate();
+
   return (
-    <s.ItemBox>
+    <s.ItemBox
+      onClick={() => {
+        navigate(`/productdetail/${id}`);
+      }}
+    >
       <s.HotelImg src={image} />
       <s.HotelInfoBox>
         <div>

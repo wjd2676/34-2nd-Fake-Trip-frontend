@@ -24,6 +24,18 @@ const Productdetail = () => {
 
   return (
     <>
+      <NavBackground>
+        <div className="topDiv">
+          <video
+            src="https://ifh.cc/v/R4jq6G.mp4"
+            muted
+            autoPlay
+            loop
+            playsInline
+            className="topVideo"
+          />
+        </div>
+      </NavBackground>
       <ProductNav />
       <Detail>
         <DetailContainer>
@@ -44,7 +56,7 @@ const Detail = styled.div`
   width: 100vw;
   display: flex;
   justify-content: center;
-  margin-top: 170px;
+  margin-top: 50px;
 `;
 
 const DetailContainer = styled.div`
@@ -56,6 +68,19 @@ const MainContents = styled.div`
   width: 700px;
   display: flex;
   flex-direction: column;
+`;
+
+const NavBackground = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 123px;
+  z-index: -1;
+  overflow: hidden;
+  video {
+    width: 100%;
+  }
 `;
 
 export default Productdetail;

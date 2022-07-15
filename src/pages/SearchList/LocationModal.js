@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHotel } from "@fortawesome/free-solid-svg-icons";
+import { IP } from "../../config";
 
 const LocationModal = ({ locationInput, setLocationInput }) => {
   const [searchList, setSearchList] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "http://10.58.7.102:8000/products?start_date=2022-05-01&end_date=2022-05-05"
-    )
+    fetch(`${IP}/products?start_date=2022-05-01&end_date=2022-05-05`)
       .then(res => res.json())
       .then(res => setSearchList(res.results));
   }, []);

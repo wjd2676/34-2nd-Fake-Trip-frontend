@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import BookerReservation from "./BookerReservation";
 import * as S from "./Booking.style";
 import TermsInput from "./TermsInput";
+import { IP } from "../../config";
 
 const Booking = () => {
   const [bookingData, setBookingData] = useState([]);
@@ -19,10 +20,9 @@ const Booking = () => {
   const location = useLocation();
 
   useEffect(() => {
-    fetch(`http://15.164.213.245:8000/orders/reservation${location.search}`, {
+    fetch(`${IP}/orders/reservation${location.search}`, {
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxM30.rQrQM6TZsK744B-vV6-uRFCByomNvDMZNvIKk1UQDu8",
+        Authorization: localStorage.getItem("Authorization"),
       },
     })
       .then(res => res.json())

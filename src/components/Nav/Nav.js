@@ -34,7 +34,7 @@ const Nav = () => {
   };
 
   const onClickLoginSignup = () => {
-    navigate("/");
+    navigate("/usersign");
   };
 
   return (
@@ -42,7 +42,7 @@ const Nav = () => {
       <NS.FirstLine>
         <NS.FirstLineLeft>
           <a href="/">
-            <NS.Logo src="./images/Nav/myfaketrip_logo(real).png" alt="logo" />
+            <NS.Logo src="/images/Nav/myfaketrip_logo(real).png" alt="logo" />
           </a>
           <NS.SearchBoxWrap onClick={openModal} className="searchBox">
             <NS.SearchBox
@@ -59,9 +59,13 @@ const Nav = () => {
           </NS.SearchBoxWrap>
         </NS.FirstLineLeft>
         <NS.FirstLineRight>
-          <NS.NormalBtn>파트너등록하기</NS.NormalBtn>
-          <NS.NormalBtn onClick={onClickLoginSignup}>로그인</NS.NormalBtn>
-          <NS.BorderBtn onClick={onClickLoginSignup}>회원가입</NS.BorderBtn>
+          {!localStorage.getItem("Authorization") && (
+            <>
+              <NS.NormalBtn>파트너등록하기</NS.NormalBtn>
+              <NS.NormalBtn onClick={onClickLoginSignup}>로그인</NS.NormalBtn>
+              <NS.BorderBtn onClick={onClickLoginSignup}>회원가입</NS.BorderBtn>
+            </>
+          )}
         </NS.FirstLineRight>
       </NS.FirstLine>
       <NS.SecondLine>

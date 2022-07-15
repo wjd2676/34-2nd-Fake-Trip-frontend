@@ -1,4 +1,5 @@
 import * as S from "./Booking.style";
+import { IP } from "../../config";
 
 const BookerReservation = ({
   userName,
@@ -23,7 +24,7 @@ const BookerReservation = ({
       setInfoConvert(!InfoConvert);
     }
 
-    fetch("http://15.164.213.245:8000/users", {
+    fetch(`${IP}/users`, {
       method: "PATCH",
       headers: {
         Authorization:

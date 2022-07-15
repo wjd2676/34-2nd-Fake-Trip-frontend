@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
+
 import * as SM from "./SearchModal-style";
+import { IP } from "../../config";
 
 const SearchModal = ({ userInput }) => {
   const [searchData, setSearchData] = useState([]);
   useEffect(() => {
-    fetch("http://10.58.7.191:8000/products?limit=40")
+    fetch(`${IP}/products?limit=40`)
       .then(res => res.json())
       .then(res => {
         setSearchData(res.results);
       });
   }, []);
 
-  if (searchData.length === 0) return <>loadingLoading</>;
+  if (searchData.length === 0) return <></>;
 
   const sortedSearchResult = searchData.filter(ele => {
     return ele.address.includes(userInput);

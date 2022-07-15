@@ -2,8 +2,16 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Nav = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
   width: 100vw;
+  video {
+    width: 100vw;
+  }
   height: 123px;
+  z-index: -1;
+  overflow: hidden;
 `;
 
 export const SearchContainer = styled.div`

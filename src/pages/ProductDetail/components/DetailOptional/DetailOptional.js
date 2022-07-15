@@ -76,7 +76,7 @@ const DetailOptional = ({ params }) => {
 
   const goToBooking = roomsId => {
     navigate(
-      `/Booking?room_id=${roomsId}start_date=${startDate}&end_date=${endDate}&guests=${sumOfGuest}`
+      `/Booking?room_id=${roomsId}&start_date=${startDate}&end_date=${endDate}&guests=${sumOfGuest}`
     );
   };
 

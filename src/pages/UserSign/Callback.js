@@ -2,10 +2,11 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import qs from "qs";
+import { IP } from "../../config";
 
 const Callback = () => {
   const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
-  const REDIRECT_URI = "http://localhost:3000/callback";
+  const REDIRECT_URI = "http://localhost:3000/";
   const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
   const code = new URL(window.location.href).searchParams.get("code");
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const Callback = () => {
 
     const kakaoToken = localStorage.getItem("kakaotoken");
     await axios
-      .get("http://15.164.213.245:8000/users/signin", {
+      .get(`${IP}/users/signin`, {
         headers: { Authorization: kakaoToken },
       })
       .then(res => {
